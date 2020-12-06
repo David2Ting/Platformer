@@ -50,3 +50,9 @@ func _physics_process(delta):
 
 	velocity.y += gravity # Add the acceleration of gravity
 	velocity = move_and_slide(velocity, floor_direction) # Do movement
+
+
+func _on_Finish_body_entered(body):
+	if body.name == "Player":
+		get_tree().reload_current_scene()
+	pass # Replace with function body.
