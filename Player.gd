@@ -10,6 +10,9 @@ const floor_direction = Vector2(0,-1) # Direction normal to floor
 var jump_count = 0
 var max_jump_count = 10
 
+# Variable score adding score
+var score = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -51,8 +54,13 @@ func _physics_process(delta):
 	velocity.y += gravity # Add the acceleration of gravity
 	velocity = move_and_slide(velocity, floor_direction) # Do movement
 
+func increase_score():
+	score += 1
 
 func _on_Finish_body_entered(body):
+	# If player has entered the Finish Flag, trigger a level reset
 	if body.name == "Player":
+		$"../AnimationPlayer".play("Fade Out")
+		yield($"../AnimationPlayer","animation_finished")
 		get_tree().reload_current_scene()
 	pass # Replace with function body.
