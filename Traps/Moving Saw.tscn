@@ -26,14 +26,16 @@ tracks/0/keys = {
 [node name="Moving Saw" type="Node2D"]
 
 [node name="Saw" parent="." instance=ExtResource( 1 )]
-position = Vector2( 119.363, -0.302231 )
+position = Vector2( 31.5683, -0.302231 )
+rotation = -2.23323e-08
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 119.363, -0.302231 )
-offset = 121.442
+position = Vector2( 31.5683, -0.302231 )
+rotation = -2.23323e-08
+offset = 33.6448
 loop = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
