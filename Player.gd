@@ -13,54 +13,68 @@ var max_jump_count = 10
 # Variable score adding score
 var score = 0
 
+# Checking if player is alive
+var is_alive = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
-	# Handle left and right movement
-	if Input.is_action_pressed("right"):
-		velocity.x = speed
-		$Sprite.play("run")
-		$Sprite.flip_h = false
-	elif Input.is_action_pressed("left"):
-		velocity.x = -speed
-		$Sprite.play("run")
-		$Sprite.flip_h = true
-	else:
-		velocity.x = 0
-		if is_on_floor():
-			$Sprite.play("default")
-	
-	# Handle Jumping
-	if Input.is_action_pressed("jump"):
-		if is_on_floor():
-			velocity.y = jump_power
-		elif jump_count < max_jump_count: #If jump is held for longer, increase jump size
-			jump_count += 1
-			velocity.y = jump_power
-	
-	if Input.is_action_just_released("jump") or is_on_ceiling(): # When you release jump, ensure you cannot jump again
-		jump_count = max_jump_count
-		
-	if is_on_floor(): # Whenever on floor, reset jump_count
-		jump_count = 0
-	else:
-		if velocity.y < 0:
-			$Sprite.play("jump")
+	if is_alive:
+		# Handle left and right movement
+		if Input.is_action_pressed("right"):
+			velocity.x = speed
+			$Sprite.play("run")
+			$Sprite.flip_h = false
+		elif Input.is_action_pressed("left"):
+			velocity.x = -speed
+			$Sprite.play("run")
+			$Sprite.flip_h = true
 		else:
-			$Sprite.play("fall")
+			velocity.x = 0
+			if is_on_floor():
+				$Sprite.play("default")
+		
+		# Handle Jumping
+		if Input.is_action_pressed("jump"):
+			if is_on_floor():
+				velocity.y = jump_power
+			elif jump_count < max_jump_count: #If jump is held for longer, increase jump size
+				jump_count += 1
+				velocity.y = jump_power
+		
+		if Input.is_action_just_released("jump") or is_on_ceiling(): # When you release jump, ensure you cannot jump again
+			jump_count = max_jump_count
+			
+		if is_on_floor(): # Whenever on floor, reset jump_count
+			jump_count = 0
+		else:
+			if velocity.y < 0:
+				$Sprite.play("jump")
+			else:
+				$Sprite.play("fall")
 
-	velocity.y += gravity # Add the acceleration of gravity
-	velocity = move_and_slide(velocity, floor_direction) # Do movement
+		velocity.y += gravity # Add the acceleration of gravity
+		velocity = move_and_slide(velocity, floor_direction) # Do movement
 
-func increase_score():
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			if collision:
+				if collision.collider.is_in_group("Trap"):
+					is_alive = false
+					$Sprite.play("hit")
+					reset_level()
+func reset_level():
+	$"../AnimationPlayer".play("Fade Out")
+	yield($"../AnimationPlayer","animation_finished")
+	get_tree().reload_current_scene()
+	
+func increase_score():	
 	score += 1
 
 func _on_Finish_body_entered(body):
 	# If player has entered the Finish Flag, trigger a level reset
 	if body.name == "Player":
-		$"../AnimationPlayer".play("Fade Out")
-		yield($"../AnimationPlayer","animation_finished")
-		get_tree().reload_current_scene()
+		reset_level()
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://Art/Main Characters/Mask Dude/Fall (32x32).png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Art/Main Characters/Mask Dude/Idle (32x32).png" type="Texture" id=8]
 [ext_resource path="res://Art/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" type="Texture" id=9]
 [ext_resource path="res://Collectible.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Traps/Saw.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Traps/Moving Saw.tscn" type="PackedScene" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 8 )
@@ -60,56 +62,56 @@ atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 7 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 7 )
-region = Rect2( 64, 0, 32, 32 )
+region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 7 )
-region = Rect2( 96, 0, 32, 32 )
+region = Rect2( 128, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 7 )
-region = Rect2( 128, 0, 32, 32 )
+region = Rect2( 160, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 7 )
-region = Rect2( 160, 0, 32, 32 )
+region = Rect2( 192, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 7 )
-region = Rect2( 192, 0, 32, 32 )
+region = Rect2( 224, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 7 )
-region = Rect2( 224, 0, 32, 32 )
+region = Rect2( 256, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 7 )
-region = Rect2( 256, 0, 32, 32 )
+region = Rect2( 288, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 7 )
-region = Rect2( 288, 0, 32, 32 )
+region = Rect2( 320, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 7 )
-region = Rect2( 320, 0, 32, 32 )
+region = Rect2( 352, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 7 )
-region = Rect2( 352, 0, 32, 32 )
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 6 )
@@ -151,18 +153,18 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 13 ) ],
-"loop": true,
-"name": "fall",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
 "loop": true,
 "name": "run",
 "speed": 20.0
 }, {
-"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
+"frames": [ SubResource( 25 ) ],
 "loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), null ],
+"loop": false,
 "name": "hit",
 "speed": 20.0
 } ]
@@ -461,6 +463,11 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=66]
 extents = Vector2( 18.2725, 22.9337 )
 
+[sub_resource type="Curve2D" id=67]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 118.824, 1.22313, 0, 0, 0, 0, 118.117, 99.511 )
+}
+
 [node name="World" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
@@ -470,7 +477,6 @@ script = ExtResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 33 )
 animation = "run"
-frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -507,7 +513,7 @@ position = Vector2( 379.665, 160.191 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Finish"]
 frames = SubResource( 65 )
-frame = 5
+frame = 6
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
@@ -518,4 +524,31 @@ shape = SubResource( 66 )
 
 [node name="Collectible" parent="Collectibles" instance=ExtResource( 10 )]
 position = Vector2( 304.763, 145.373 )
+
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="Saw" parent="Traps" instance=ExtResource( 11 )]
+position = Vector2( 214.254, 192.191 )
+
+[node name="Moving Saw" parent="Traps" instance=ExtResource( 12 )]
+
+[node name="Saw" parent="Traps/Moving Saw" index="0"]
+position = Vector2( 118.824, 1.22313 )
+rotation = 1.57799
+scale = Vector2( 1, 1 )
+
+[node name="Path2D" parent="Traps/Moving Saw" index="1"]
+curve = SubResource( 67 )
+
+[node name="PathFollow2D" parent="Traps/Moving Saw/Path2D" index="0"]
+position = Vector2( 118.824, 1.22313 )
+rotation = 1.57799
+offset = 0.0
+
+[node name="Moving Saw" parent="Traps/Moving Saw/Path2D" index="1" instance=ExtResource( 12 )]
+position = Vector2( 217.112, 58.4988 )
+
+[node name="Objects" type="Node2D" parent="."]
 [connection signal="body_entered" from="Finish" to="Player" method="_on_Finish_body_entered"]
+
+[editable path="Traps/Moving Saw"]
