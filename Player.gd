@@ -62,9 +62,28 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			if collision:
 				if collision.collider.is_in_group("Trap"):
-					is_alive = false
-					$Sprite.play("hit")
-					reset_level()
+					die()
+				if collision.collider.has_method("collide_with_player"):
+					collision.collider.collide_with_player(self)
+
+		check_jump_on_enemy(delta)
+
+func check_jump_on_enemy(delta):
+	# Function to check if the player is jumping on any enemies.
+	if velocity.y > 0:
+		for ray in $JumpCasts.get_children():
+			ray.cast_to = Vector2(0,1) * velocity * delta + Vector2(0,1) # Set raycast to be 1 pixel larger than current down velocity
+			ray.force_raycast_update()
+			if ray.is_colliding() and ray.get_collider().is_in_group('Enemies'): # If the raycast is colliding with an Enemy, kill the enemy and jump.
+				velocity.y = jump_power
+				ray.get_collider().die()
+				break
+	
+func die():
+	is_alive = false
+	$Sprite.play("hit")
+	reset_level()
+
 func reset_level():
 	$"../AnimationPlayer".play("Fade Out")
 	yield($"../AnimationPlayer","animation_finished")
