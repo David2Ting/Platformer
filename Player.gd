@@ -62,9 +62,13 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			if collision:
 				if collision.collider.is_in_group("Trap"):
-					is_alive = false
-					$Sprite.play("hit")
-					reset_level()
+					die()
+
+func die():
+	is_alive = false
+	$Sprite.play("hit")
+	reset_level()
+
 func reset_level():
 	$"../AnimationPlayer".play("Fade Out")
 	yield($"../AnimationPlayer","animation_finished")

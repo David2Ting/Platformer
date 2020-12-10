@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://Art/Main Characters/Mask Dude/Fall (32x32).png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -10,8 +10,10 @@
 [ext_resource path="res://Art/Main Characters/Mask Dude/Idle (32x32).png" type="Texture" id=8]
 [ext_resource path="res://Art/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" type="Texture" id=9]
 [ext_resource path="res://Collectible.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Traps/Saw.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Traps/Head.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Traps/Moving Saw.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Traps/Spiked Head.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/Moving Platform.tscn" type="PackedScene" id=14]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 8 )
@@ -62,84 +64,84 @@ atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 6 )
 region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 6 )
 region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 6 )
 region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 6 )
 region = Rect2( 128, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 6 )
 region = Rect2( 160, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 6 )
 region = Rect2( 192, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 7 )
-region = Rect2( 224, 0, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 7 )
-region = Rect2( 256, 0, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 7 )
-region = Rect2( 288, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 7 )
-region = Rect2( 320, 0, 32, 32 )
+region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 7 )
-region = Rect2( 352, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 6 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 6 )
-region = Rect2( 64, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 6 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 6 )
 region = Rect2( 128, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 7 )
 region = Rect2( 160, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 7 )
 region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 7 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 7 )
+region = Rect2( 256, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 7 )
+region = Rect2( 288, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 7 )
+region = Rect2( 320, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 7 )
+region = Rect2( 352, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=33]
 animations = [ {
@@ -153,20 +155,20 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), null ],
+"loop": false,
+"name": "hit",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
 "name": "run",
 "speed": 20.0
 }, {
-"frames": [ SubResource( 25 ) ],
+"frames": [ SubResource( 32 ) ],
 "loop": true,
 "name": "fall",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), null ],
-"loop": false,
-"name": "hit",
-"speed": 20.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=34]
@@ -465,18 +467,19 @@ extents = Vector2( 18.2725, 22.9337 )
 
 [sub_resource type="Curve2D" id=67]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 118.824, 1.22313, 0, 0, 0, 0, 118.117, 99.511 )
+"points": PoolVector2Array( 0, 0, 0, 0, -4.02478, 0.329605, 0, 0, 0, 0, -4.49673, 111.235 )
 }
 
 [node name="World" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 263.581, 129.373 )
+position = Vector2( 95.0994, 152.498 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 frames = SubResource( 33 )
 animation = "run"
+frame = 11
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -493,8 +496,9 @@ limit_bottom = 300
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 51 )
 cell_size = Vector2( 16, 16 )
+collision_mask = 3
 format = 1
-tile_data = PoolIntArray( 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 589845, 10, 0, 589846, 10, 0, 589847, 10, 0, 655378, 0, 0, 655379, 0, 2, 655381, 10, 0, 655382, 10, 0, 655383, 10, 0, 720910, 10, 0, 720911, 0, 0, 720912, 0, 1, 720913, 0, 1, 720914, 0, 65540, 720915, 0, 65539, 720916, 0, 1, 720917, 0, 2, 720918, 10, 0, 720919, 10, 0, 786444, 0, 0, 786445, 0, 1, 786446, 0, 1, 786447, 0, 65540, 786448, 0, 65537, 786449, 0, 65537, 786450, 0, 65537, 786451, 0, 65537, 786452, 0, 65537, 786453, 0, 65539, 786454, 0, 1, 786455, 0, 2, 851980, 0, 65536, 851981, 0, 65537, 851982, 0, 65537, 851983, 0, 65537, 851984, 0, 65537, 851985, 0, 65537, 851986, 0, 65537, 851987, 0, 65537, 851988, 0, 65537, 851989, 0, 65537, 851990, 0, 65537, 851991, 0, 65538, 917516, 0, 65536, 917517, 0, 65537, 917518, 0, 65537, 917519, 0, 65537, 917520, 0, 65537, 917521, 0, 65537, 917522, 0, 65537, 917523, 0, 65537, 917524, 0, 65537, 917525, 0, 65537, 917526, 0, 65537, 917527, 0, 65538, 983052, 0, 65536, 983053, 0, 65537, 983054, 0, 65537, 983055, 0, 65537, 983056, 0, 65537, 983057, 0, 65537, 983058, 0, 65537, 983059, 0, 65537, 983060, 0, 65537, 983061, 0, 65537, 983062, 0, 65537, 983063, 0, 65539, 983064, 0, 2, 1048588, 0, 65536, 1048589, 0, 65537, 1048590, 0, 65537, 1048591, 0, 65537, 1048592, 0, 65537, 1048593, 0, 65537, 1048594, 0, 65537, 1048595, 0, 65537, 1048596, 0, 65537, 1048597, 0, 65537, 1048598, 0, 65537, 1048599, 0, 65537, 1048600, 0, 65538, 1114124, 0, 131072, 1114125, 0, 131073, 1114126, 0, 131073, 1114127, 0, 131073, 1114128, 0, 131073, 1114129, 0, 131073, 1114130, 0, 131073, 1114131, 0, 131073, 1114132, 0, 131073, 1114133, 0, 131073, 1114134, 0, 131073, 1114135, 0, 131073, 1114136, 0, 131074 )
+tile_data = PoolIntArray( -131072, 0, 0, -131071, 0, 1, -131070, 0, 2, -65536, 0, 65536, -65535, 0, 65537, -65534, 0, 65538, 0, 0, 65536, 1, 0, 65537, 2, 0, 65538, 65536, 0, 65536, 65537, 0, 65537, 65538, 0, 65538, 131072, 0, 65536, 131073, 0, 65537, 131074, 0, 65538, 196608, 0, 65536, 196609, 0, 65537, 196610, 0, 65538, 262144, 0, 65536, 262145, 0, 65537, 262146, 0, 65538, 327680, 0, 65536, 327681, 0, 65537, 327682, 0, 65539, 327683, 0, 2, 393216, 0, 65536, 393217, 0, 65537, 393218, 0, 65537, 393219, 0, 65538, 458752, 0, 65536, 458753, 0, 65537, 458754, 0, 65537, 458755, 0, 65539, 458756, 0, 2, 524288, 0, 65536, 524289, 0, 65537, 524290, 0, 65537, 524291, 0, 65537, 524292, 0, 65538, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 589824, 0, 65536, 589825, 0, 65537, 589826, 0, 65537, 589827, 0, 65537, 589828, 0, 65538, 589845, 10, 0, 589846, 10, 0, 589847, 10, 0, 655360, 0, 65536, 655361, 0, 65537, 655362, 0, 65537, 655363, 0, 65537, 655364, 0, 65538, 655378, 0, 0, 655379, 0, 2, 655381, 10, 0, 655382, 10, 0, 655383, 10, 0, 720896, 0, 65536, 720897, 0, 65537, 720898, 0, 65537, 720899, 0, 65537, 720900, 0, 65539, 720901, 0, 1, 720902, 0, 2, 720913, 0, 0, 720914, 0, 65540, 720915, 0, 65539, 720916, 0, 1, 720917, 0, 2, 720918, 10, 0, 720919, 10, 0, 786432, 0, 65536, 786433, 0, 65537, 786434, 0, 65537, 786435, 0, 65537, 786436, 0, 65537, 786437, 0, 65537, 786438, 0, 65538, 786449, 0, 65536, 786450, 0, 65537, 786451, 0, 65537, 786452, 0, 65537, 786453, 0, 65539, 786454, 0, 1, 786455, 0, 2, 851968, 0, 65536, 851969, 0, 65537, 851970, 0, 65537, 851971, 0, 65537, 851972, 0, 65537, 851973, 0, 65537, 851974, 0, 65538, 851985, 0, 65536, 851986, 0, 65537, 851987, 0, 65537, 851988, 0, 65537, 851989, 0, 65537, 851990, 0, 65537, 851991, 0, 65538, 917504, 0, 65536, 917505, 0, 65537, 917506, 0, 65537, 917507, 0, 65537, 917508, 0, 65537, 917509, 0, 65537, 917510, 0, 65539, 917511, 0, 1, 917512, 0, 1, 917513, 0, 1, 917514, 0, 1, 917515, 0, 1, 917516, 0, 1, 917517, 0, 1, 917518, 0, 1, 917519, 0, 1, 917520, 0, 1, 917521, 0, 65540, 917522, 0, 65537, 917523, 0, 65537, 917524, 0, 65537, 917525, 0, 65537, 917526, 0, 65537, 917527, 0, 65538, 983040, 0, 65536, 983041, 0, 65537, 983042, 0, 65537, 983043, 0, 65537, 983044, 0, 65537, 983045, 0, 65537, 983046, 0, 65537, 983047, 0, 65537, 983048, 0, 65537, 983049, 0, 65537, 983050, 0, 65537, 983051, 0, 65537, 983052, 0, 65537, 983053, 0, 65537, 983054, 0, 65537, 983055, 0, 65537, 983056, 0, 65537, 983057, 0, 65537, 983058, 0, 65537, 983059, 0, 65537, 983060, 0, 65537, 983061, 0, 65537, 983062, 0, 65537, 983063, 0, 65539, 983064, 0, 2, 1048576, 0, 65536, 1048577, 0, 65537, 1048578, 0, 65537, 1048579, 0, 65537, 1048580, 0, 65537, 1048581, 0, 65537, 1048582, 0, 65537, 1048583, 0, 65537, 1048584, 0, 65537, 1048585, 0, 65537, 1048586, 0, 65537, 1048587, 0, 65537, 1048588, 0, 65537, 1048589, 0, 65537, 1048590, 0, 65537, 1048591, 0, 65537, 1048592, 0, 65537, 1048593, 0, 65537, 1048594, 0, 65537, 1048595, 0, 65537, 1048596, 0, 65537, 1048597, 0, 65537, 1048598, 0, 65537, 1048599, 0, 65537, 1048600, 0, 65538, 1114112, 0, 131072, 1114113, 0, 131073, 1114114, 0, 131073, 1114115, 0, 131073, 1114116, 0, 131073, 1114117, 0, 131073, 1114118, 0, 131073, 1114119, 0, 131073, 1114120, 0, 131073, 1114121, 0, 131073, 1114122, 0, 131073, 1114123, 0, 131073, 1114124, 0, 131073, 1114125, 0, 131073, 1114126, 0, 131073, 1114127, 0, 131073, 1114128, 0, 131073, 1114129, 0, 131073, 1114130, 0, 131073, 1114131, 0, 131073, 1114132, 0, 131073, 1114133, 0, 131073, 1114134, 0, 131073, 1114135, 0, 131073, 1114136, 0, 131074 )
 
 [node name="BackgroundTileMap" type="TileMap" parent="."]
 z_index = -1
@@ -513,7 +517,7 @@ position = Vector2( 379.665, 160.191 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Finish"]
 frames = SubResource( 65 )
-frame = 6
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
@@ -523,32 +527,66 @@ shape = SubResource( 66 )
 [node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Collectible" parent="Collectibles" instance=ExtResource( 10 )]
-position = Vector2( 304.763, 145.373 )
+position = Vector2( 200.465, 115.169 )
+
+[node name="Collectible2" parent="Collectibles" instance=ExtResource( 10 )]
+position = Vector2( 226.421, 115.169 )
+
+[node name="Collectible3" parent="Collectibles" instance=ExtResource( 10 )]
+position = Vector2( 345.35, 115.169 )
+
+[node name="Collectible4" parent="Collectibles" instance=ExtResource( 10 )]
+position = Vector2( 370.362, 115.169 )
 
 [node name="Traps" type="Node2D" parent="."]
 
-[node name="Saw" parent="Traps" instance=ExtResource( 11 )]
-position = Vector2( 214.254, 192.191 )
-
 [node name="Moving Saw" parent="Traps" instance=ExtResource( 12 )]
+position = Vector2( 299.208, 39.6427 )
 
 [node name="Saw" parent="Traps/Moving Saw" index="0"]
-position = Vector2( 118.824, 1.22313 )
-rotation = 1.57799
-scale = Vector2( 1, 1 )
+position = Vector2( -4.02478, 0.329605 )
+rotation = 1.57505
 
 [node name="Path2D" parent="Traps/Moving Saw" index="1"]
 curve = SubResource( 67 )
 
 [node name="PathFollow2D" parent="Traps/Moving Saw/Path2D" index="0"]
-position = Vector2( 118.824, 1.22313 )
-rotation = 1.57799
-offset = 0.0
+position = Vector2( -4.02478, 0.329605 )
+rotation = 1.57505
 
-[node name="Moving Saw" parent="Traps/Moving Saw/Path2D" index="1" instance=ExtResource( 12 )]
-position = Vector2( 217.112, 58.4988 )
+[node name="AnimationPlayer" parent="Traps/Moving Saw" index="2"]
+playback_speed = 0.5
+
+[node name="Moving Saw2" parent="Traps" instance=ExtResource( 12 )]
+position = Vector2( 210.977, 98.1415 )
+
+[node name="Saw" parent="Traps/Moving Saw2" index="0"]
+position = Vector2( -2.08984, -0.302231 )
+
+[node name="AnimationPlayer" parent="Traps/Moving Saw2" index="2"]
+playback_speed = 0.25
+
+[node name="Moving Platform" parent="Traps" instance=ExtResource( 14 )]
+position = Vector2( 158.071, 150.954 )
+
+[node name="Platform" parent="Traps/Moving Platform" index="0"]
+position = Vector2( -2.08984, -0.302231 )
+
+[node name="AnimationPlayer" parent="Traps/Moving Platform" index="2"]
+playback_speed = 0.5
+
+[node name="Spiked Head" parent="." instance=ExtResource( 13 )]
+position = Vector2( 159.966, 199.296 )
+
+[node name="Head" parent="." instance=ExtResource( 11 )]
+position = Vector2( 223.226, 206.708 )
+collision_layer = 1
 
 [node name="Objects" type="Node2D" parent="."]
 [connection signal="body_entered" from="Finish" to="Player" method="_on_Finish_body_entered"]
 
 [editable path="Traps/Moving Saw"]
+
+[editable path="Traps/Moving Saw2"]
+
+[editable path="Traps/Moving Platform"]
