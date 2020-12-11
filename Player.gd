@@ -63,6 +63,8 @@ func _physics_process(delta):
 			if collision:
 				if collision.collider.is_in_group("Trap"):
 					die()
+				if collision.collider.has_method("collide_with_player"):
+					collision.collider.collide_with_player(self)
 
 func die():
 	is_alive = false

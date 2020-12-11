@@ -13,8 +13,10 @@ func collide_with_player(player):
 	player.velocity.y -= 500
 	player.move_and_slide(player.velocity)
 	$AnimatedSprite.play("spring")
+	$CollisionShape2D.disabled = true
 	yield($AnimatedSprite,"animation_finished")
 	$AnimatedSprite.play("default")
+	$CollisionShape2D.disabled = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

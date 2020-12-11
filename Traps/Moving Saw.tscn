@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Traps/Saw.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Traps/Moving Saw.gd" type="Script" id=2]
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -2.08984, -0.302231, 0, 0, 0, 0, 155.24, -0.302231 )
+"points": PoolVector2Array( 0, 0, 0, 0, -0.535957, -0.105644, 0, 0, 0, 0, 113.162, -0.105644 )
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "BackAndForth"
+length = 2.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
@@ -17,25 +19,24 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
 }
 
 [node name="Moving Saw" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Saw" parent="." instance=ExtResource( 1 )]
-position = Vector2( 31.5683, -0.302231 )
-rotation = -2.23323e-08
+rotation = 7.47676e-09
 
 [node name="Path2D" type="Path2D" parent="."]
-curve = SubResource( 1 )
+curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 31.5683, -0.302231 )
-rotation = -2.23323e-08
-offset = 33.6448
+rotation = 7.47676e-09
+offset = 120.175
 loop = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
