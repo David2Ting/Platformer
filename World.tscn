@@ -10,7 +10,7 @@
 [ext_resource path="res://Art/Main Characters/Mask Dude/Idle (32x32).png" type="Texture" id=8]
 [ext_resource path="res://Art/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" type="Texture" id=9]
 [ext_resource path="res://Collectible.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Traps/Saw.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Traps/Spikes.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Traps/Moving Saw.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Objects/Trampoline.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Enemies/Trunk.tscn" type="PackedScene" id=14]
@@ -168,7 +168,7 @@ animations = [ {
 }, {
 "frames": [ SubResource( 32 ) ],
 "loop": true,
-"name": "fall",
+"name": "jump",
 "speed": 5.0
 } ]
 
@@ -466,11 +466,6 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=66]
 extents = Vector2( 18.2725, 22.9337 )
 
-[sub_resource type="Curve2D" id=67]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 118.824, 1.22313, 0, 0, 0, 0, 118.117, 99.511 )
-}
-
 [node name="World" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
@@ -514,6 +509,7 @@ cast_to = Vector2( 0, 15 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 51 )
 cell_size = Vector2( 16, 16 )
+collision_mask = 3
 format = 1
 tile_data = PoolIntArray( 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 589845, 10, 0, 589846, 10, 0, 589847, 10, 0, 655378, 0, 0, 655379, 0, 2, 655381, 10, 0, 655382, 10, 0, 655383, 10, 0, 720910, 10, 0, 720911, 0, 0, 720912, 0, 1, 720913, 0, 1, 720914, 0, 65540, 720915, 0, 65539, 720916, 0, 1, 720917, 0, 2, 720918, 10, 0, 720919, 10, 0, 786444, 0, 0, 786445, 0, 1, 786446, 0, 1, 786447, 0, 65540, 786448, 0, 65537, 786449, 0, 65537, 786450, 0, 65537, 786451, 0, 65537, 786452, 0, 65537, 786453, 0, 65539, 786454, 0, 1, 786455, 0, 2, 851979, 0, 0, 851980, 0, 65540, 851981, 0, 65537, 851982, 0, 65537, 851983, 0, 65537, 851984, 0, 65537, 851985, 0, 65537, 851986, 0, 65537, 851987, 0, 65537, 851988, 0, 65537, 851989, 0, 65537, 851990, 0, 65537, 851991, 0, 65538, 852003, 0, 0, 852004, 0, 1, 852005, 0, 1, 852006, 0, 1, 852007, 0, 2, 917510, 0, 0, 917511, 0, 1, 917512, 0, 1, 917513, 0, 1, 917514, 0, 1, 917515, 0, 65540, 917516, 0, 65537, 917517, 0, 65537, 917518, 0, 65537, 917519, 0, 65537, 917520, 0, 65537, 917521, 0, 65537, 917522, 0, 65537, 917523, 0, 65537, 917524, 0, 65537, 917525, 0, 65537, 917526, 0, 65537, 917527, 0, 65538, 917539, 0, 65536, 917540, 0, 65537, 917541, 0, 65537, 917542, 0, 65537, 917543, 0, 65538, 983046, 0, 65536, 983047, 0, 65537, 983048, 0, 65537, 983049, 0, 65537, 983050, 0, 65537, 983051, 0, 65537, 983052, 0, 65537, 983053, 0, 65537, 983054, 0, 65537, 983055, 0, 65537, 983056, 0, 65537, 983057, 0, 65537, 983058, 0, 65537, 983059, 0, 65537, 983060, 0, 65537, 983061, 0, 65537, 983062, 0, 65537, 983063, 0, 65539, 983064, 0, 1, 983065, 0, 1, 983066, 0, 1, 983067, 0, 1, 983068, 0, 1, 983069, 0, 1, 983070, 0, 1, 983071, 0, 1, 983072, 0, 1, 983073, 0, 1, 983074, 0, 1, 983075, 0, 65540, 983076, 0, 65537, 983077, 0, 65537, 983078, 0, 65537, 983079, 0, 65539, 983080, 0, 1, 983081, 0, 1, 983082, 0, 1, 983083, 0, 1, 983084, 0, 1, 983085, 0, 2, 1048582, 0, 65536, 1048583, 0, 65537, 1048584, 0, 65537, 1048585, 0, 65537, 1048586, 0, 65537, 1048587, 0, 65537, 1048588, 0, 65537, 1048589, 0, 65537, 1048590, 0, 65537, 1048591, 0, 65537, 1048592, 0, 65537, 1048593, 0, 65537, 1048594, 0, 65537, 1048595, 0, 65537, 1048596, 0, 65537, 1048597, 0, 65537, 1048598, 0, 65537, 1048599, 0, 65537, 1048600, 0, 65537, 1048601, 0, 65537, 1048602, 0, 65537, 1048603, 0, 65537, 1048604, 0, 65537, 1048605, 0, 65537, 1048606, 0, 65537, 1048607, 0, 65537, 1048608, 0, 65537, 1048609, 0, 65537, 1048610, 0, 65537, 1048611, 0, 65537, 1048612, 0, 65537, 1048613, 0, 65537, 1048614, 0, 65537, 1048615, 0, 65537, 1048616, 0, 65537, 1048617, 0, 65537, 1048618, 0, 65537, 1048619, 0, 65537, 1048620, 0, 65537, 1048621, 0, 65538, 1048622, 0, 65537, 1114118, 0, 131072, 1114119, 0, 131073, 1114120, 0, 131073, 1114121, 0, 131073, 1114122, 0, 131073, 1114123, 0, 131073, 1114124, 0, 131073, 1114125, 0, 131073, 1114126, 0, 131073, 1114127, 0, 131073, 1114128, 0, 131073, 1114129, 0, 131073, 1114130, 0, 131073, 1114131, 0, 131073, 1114132, 0, 131073, 1114133, 0, 131073, 1114134, 0, 131073, 1114135, 0, 131073, 1114136, 0, 4, 1114137, 0, 65537, 1114138, 0, 65537, 1114139, 0, 65537, 1114140, 0, 65537, 1114141, 0, 65537, 1114142, 0, 65537, 1114143, 0, 65537, 1114144, 0, 65537, 1114145, 0, 65537, 1114146, 0, 65537, 1114147, 0, 65537, 1114148, 0, 65537, 1114149, 0, 65537, 1114150, 0, 65537, 1114151, 0, 3, 1114152, 0, 131073, 1114153, 0, 131073, 1114154, 0, 131073, 1114155, 0, 131073, 1114156, 0, 131073, 1114157, 0, 131074, 1179672, 0, 131072, 1179673, 0, 131073, 1179674, 0, 131073, 1179675, 0, 131073, 1179676, 0, 131073, 1179677, 0, 131073, 1179678, 0, 131073, 1179679, 0, 131073, 1179680, 0, 131073, 1179681, 0, 131073, 1179682, 0, 131073, 1179683, 0, 131073, 1179684, 0, 131073, 1179685, 0, 131073, 1179686, 0, 131073, 1179687, 0, 131074 )
 
@@ -521,7 +517,7 @@ tile_data = PoolIntArray( 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524309, 1, 0
 z_index = -1
 tile_set = SubResource( 52 )
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_priority = 5
@@ -541,30 +537,42 @@ playing = true
 position = Vector2( 0, 9.24986 )
 shape = SubResource( 66 )
 
+[node name="Head" parent="Finish" instance=ExtResource( 19 )]
+position = Vector2( -73.3893, 89.4303 )
+
 [node name="Collectibles" type="Node2D" parent="."]
 
 [node name="Collectible" parent="Collectibles" instance=ExtResource( 10 )]
-position = Vector2( 304.763, 145.373 )
+position = Vector2( 200.465, 115.169 )
+
+[node name="Collectible2" parent="Collectibles" instance=ExtResource( 10 )]
+position = Vector2( 226.421, 115.169 )
+
+[node name="Collectible3" parent="Collectibles" instance=ExtResource( 10 )]
+position = Vector2( 345.35, 115.169 )
+
+[node name="Collectible4" parent="Collectibles" instance=ExtResource( 10 )]
+position = Vector2( 370.362, 115.169 )
 
 [node name="Traps" type="Node2D" parent="."]
 
-[node name="Saw" parent="Traps" instance=ExtResource( 11 )]
-position = Vector2( 214.254, 192.191 )
+[node name="Saw" parent="Traps" instance=ExtResource( 13 )]
+position = Vector2( 318.144, 223.047 )
 
-[node name="Moving Saw" parent="Traps" instance=ExtResource( 12 )]
+[node name="Saw2" parent="Traps" instance=ExtResource( 13 )]
+position = Vector2( 112.729, 223.047 )
 
-[node name="Saw" parent="Traps/Moving Saw" index="0"]
-position = Vector2( 118.824, 1.22313 )
-rotation = 1.57799
-scale = Vector2( 1, 1 )
+[node name="Spikes" parent="Traps" instance=ExtResource( 11 )]
+position = Vector2( 277.839, 216.33 )
 
-[node name="Path2D" parent="Traps/Moving Saw" index="1"]
-curve = SubResource( 67 )
+[node name="Spikes2" parent="Traps" instance=ExtResource( 11 )]
+position = Vector2( 236.12, 216.33 )
 
-[node name="PathFollow2D" parent="Traps/Moving Saw/Path2D" index="0"]
-position = Vector2( 118.824, 1.22313 )
-rotation = 1.57799
-offset = 0.0
+[node name="Spikes4" parent="Traps" instance=ExtResource( 11 )]
+position = Vector2( 194.754, 216.33 )
+
+[node name="Spikes3" parent="Traps" instance=ExtResource( 11 )]
+position = Vector2( 153.035, 216.33 )
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -584,4 +592,19 @@ position = Vector2( 483.033, 221.963 )
 position = Vector2( 132.787, 202.36 )
 [connection signal="body_entered" from="Finish" to="Player" method="_on_Finish_body_entered"]
 
-[editable path="Traps/Moving Saw"]
+[node name="Moving Platform" parent="Objects" instance=ExtResource( 14 )]
+position = Vector2( 152.792, 169.007 )
+playback_speed = 1.0
+
+[node name="FallingPlatform" parent="Objects" instance=ExtResource( 15 )]
+position = Vector2( 390.388, 97.0737 )
+
+[node name="FallingPlatform2" parent="Objects" instance=ExtResource( 15 )]
+position = Vector2( 430.468, 72.4958 )
+
+[node name="Trampoline" parent="Objects" instance=ExtResource( 17 )]
+position = Vector2( 690.781, 210.287 )
+
+[node name="Trampoline2" parent="Objects" instance=ExtResource( 17 )]
+position = Vector2( 721.368, 130.031 )
+[connection signal="body_entered" from="Finish" to="Player" method="_on_Finish_body_entered"]
