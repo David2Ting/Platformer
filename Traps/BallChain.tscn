@@ -56,7 +56,7 @@ speed = 1.0
 [node name="Ball" type="KinematicBody2D" parent="." groups=[
 "Trap",
 ]]
-rotation = 2.14568
+rotation = 3.24523
 
 [node name="Ball" type="Sprite" parent="Ball"]
 position = Vector2( 80, 0 )
