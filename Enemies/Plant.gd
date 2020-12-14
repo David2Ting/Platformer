@@ -13,7 +13,7 @@ var detected_player = false
 var is_shooting = false
 
 
-var bullet = preload("res://Enemies/TrunkBullet.tscn")
+var bullet = preload("res://Enemies/PlantBullet.tscn")
 
 func _ready():
 		pass # Replace with function body.
@@ -21,8 +21,8 @@ func _ready():
 func _physics_process(delta):
 	if is_alive:
 		if not detected_player and !is_shooting:
-			velocity.x = speed * direction
-			$AnimatedSprite.play("run")
+			velocity.x = 0
+			$AnimatedSprite.play("default")
 		else:
 			velocity.x = 0
 		if direction == 1:
@@ -39,17 +39,6 @@ func _physics_process(delta):
 			if collision:
 				if collision.collider.name == 'Player':
 					collision.collider.die()
-
-		if is_on_wall():
-			direction = direction * -1
-			$RayCast2D.position.x *= -1
-			$PlayerDetect.position.x *= -1
-			$PlayerDetect.cast_to.x *= -1
-		if $RayCast2D.is_colliding() == false:
-			direction = direction * - 1
-			$RayCast2D.position.x *= -1
-			$PlayerDetect.position.x *= -1
-			$PlayerDetect.cast_to.x *= -1
 			
 		if $PlayerDetect.is_colliding() and $PlayerDetect.get_collider().name == 'Player':
 			detected_player = true

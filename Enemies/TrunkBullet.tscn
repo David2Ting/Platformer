@@ -9,7 +9,6 @@ radius = 5.8934
 [node name="TrunkBullet" type="KinematicBody2D" groups=[
 "Trap",
 ]]
-collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

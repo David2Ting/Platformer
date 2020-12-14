@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 50
+var speed = 150
 var velocity = Vector2()
 const gravity = 15
 const jump_power = -200
@@ -20,11 +20,12 @@ func _ready():
 
 func _physics_process(delta):
 	if is_alive:
-		if not detected_player and !is_shooting:
+		if detected_player:
 			velocity.x = speed * direction
 			$AnimatedSprite.play("run")
 		else:
 			velocity.x = 0
+			$AnimatedSprite.play("default")
 		if direction == 1:
 			$AnimatedSprite.flip_h = true
 		else:
@@ -43,30 +44,14 @@ func _physics_process(delta):
 		if is_on_wall():
 			direction = direction * -1
 			$RayCast2D.position.x *= -1
-			$PlayerDetect.position.x *= -1
-			$PlayerDetect.cast_to.x *= -1
 		if $RayCast2D.is_colliding() == false:
 			direction = direction * - 1
 			$RayCast2D.position.x *= -1
-			$PlayerDetect.position.x *= -1
-			$PlayerDetect.cast_to.x *= -1
 			
-		if $PlayerDetect.is_colliding() and $PlayerDetect.get_collider().name == 'Player':
+		if ($PlayerDetect.is_colliding() and $PlayerDetect.get_collider().name == 'Player') or ($PlayerDetect2.is_colliding() and $PlayerDetect2.get_collider().name == 'Player'):
+			print("detect")
 			detected_player = true
-			if not is_shooting:
-				is_shooting = true
-				shoot()
-		else:
-			detected_player = false
-
-func shoot():
-	$AnimatedSprite.play("shoot")
-	yield($AnimatedSprite,"animation_finished")
-	var new_bullet = bullet.instance()
-	add_child(new_bullet)
-	new_bullet.position = $PlayerDetect.position
-	new_bullet.direction = direction
-	is_shooting = false
+			$Timer.start()
 
 func die():
 	is_alive = false
@@ -74,3 +59,8 @@ func die():
 	$CollisionShape2D.disabled = true
 	yield($AnimatedSprite,"animation_finished")
 	queue_free()
+
+
+func _on_Timer_timeout():
+	detected_player = false
+	pass # Replace with function body.
