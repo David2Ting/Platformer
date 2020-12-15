@@ -21,6 +21,7 @@ func _on_Collectible_body_entered(body):
 		$AnimatedSprite.play('collected')
 		body.increase_score()
 		$AudioStreamPlayer2D.play()
+		$CollisionShape2D.disabled = true
 		yield($AudioStreamPlayer2D, "finished")
 		queue_free()
 	pass # Replace with function body.

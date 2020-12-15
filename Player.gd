@@ -130,5 +130,5 @@ func _on_ResetButton_pressed():
 
 
 func _on_level_pressed(level):
-	print(level)
+	get_tree().change_scene("res://Levels/"+str(level)+".tscn")
 	pass # Replace with function body.
