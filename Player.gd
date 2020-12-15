@@ -16,6 +16,9 @@ var score = 0
 # Checking if player is alive
 var is_alive = true
 
+# Store reference to Menu
+onready var menu = $"../UI/Menu"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -78,11 +81,22 @@ func check_jump_on_enemy(delta):
 				velocity.y = jump_power
 				ray.get_collider().die()
 				break
-	
+
+func win():
+	is_alive = false
+	$Sprite.play("hit")
+	yield($Sprite,"animation_finished")
+	menu.show()
+	menu.get_node("Label").show()
+	menu.get_node("Label").text = "Win\nScore: " + str(score)
+
 func die():
 	is_alive = false
 	$Sprite.play("hit")
-	reset_level()
+	yield($Sprite,"animation_finished")
+	menu.show()
+	menu.get_node("Label").show()
+	menu.get_node("Label").text = "Game Over"
 
 func reset_level():
 	$"../AnimationPlayer".play("Fade Out")
@@ -95,5 +109,26 @@ func increase_score():
 func _on_Finish_body_entered(body):
 	# If player has entered the Finish Flag, trigger a level reset
 	if body.name == "Player":
-		reset_level()
+		win()
+	pass # Replace with function body.
+
+
+func _on_MenuButton_pressed():
+	menu.show()
+	pass # Replace with function body.
+
+
+func _on_PlayButton_pressed():
+	menu.hide()
+	pass # Replace with function body.
+
+
+func _on_ResetButton_pressed():
+	reset_level()
+	pass # Replace with function body.
+
+
+
+func _on_level_pressed(level):
+	print(level)
 	pass # Replace with function body.
