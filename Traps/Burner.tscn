@@ -1,9 +1,10 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Art/Traps/Fire/Off.png" type="Texture" id=1]
-[ext_resource path="res://Art/Traps/Fire/Hit (16x32).png" type="Texture" id=2]
-[ext_resource path="res://Art/Traps/Fire/On (16x32).png" type="Texture" id=3]
+[ext_resource path="res://Art/Pixel Adventure 1/Traps/Fire/Off.png" type="Texture" id=1]
+[ext_resource path="res://Art/Pixel Adventure 1/Traps/Fire/Hit (16x32).png" type="Texture" id=2]
+[ext_resource path="res://Art/Pixel Adventure 1/Traps/Fire/On (16x32).png" type="Texture" id=3]
 [ext_resource path="res://Traps/Burner.gd" type="Script" id=4]
+
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )

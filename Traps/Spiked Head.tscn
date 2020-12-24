@@ -1,12 +1,13 @@
 [gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Traps/Spiked Head.gd" type="Script" id=1]
-[ext_resource path="res://Art/Traps/Spike Head/Blink (54x52).png" type="Texture" id=2]
-[ext_resource path="res://Art/Traps/Spike Head/Top Hit (54x52).png" type="Texture" id=3]
-[ext_resource path="res://Art/Traps/Spike Head/Right Hit (54x52).png" type="Texture" id=4]
-[ext_resource path="res://Art/Traps/Spike Head/Idle.png" type="Texture" id=5]
-[ext_resource path="res://Art/Traps/Spike Head/Left Hit (54x52).png" type="Texture" id=6]
-[ext_resource path="res://Art/Traps/Spike Head/Bottom Hit (54x52).png" type="Texture" id=7]
+[ext_resource path="res://Art/Pixel Adventure 1/Traps/Spike Head/Blink (54x52).png" type="Texture" id=2]
+[ext_resource path="res://Art/Pixel Adventure 1/Traps/Spike Head/Top Hit (54x52).png" type="Texture" id=3]
+[ext_resource path="res://Art/Pixel Adventure 1/Traps/Spike Head/Right Hit (54x52).png" type="Texture" id=4]
+[ext_resource path="res://Art/Pixel Adventure 1/Traps/Spike Head/Idle.png" type="Texture" id=5]
+[ext_resource path="res://Art/Pixel Adventure 1/Traps/Spike Head/Left Hit (54x52).png" type="Texture" id=6]
+[ext_resource path="res://Art/Pixel Adventure 1/Traps/Spike Head/Bottom Hit (54x52).png" type="Texture" id=7]
+
 
 [sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 4 )

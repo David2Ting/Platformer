@@ -1,6 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Art/Traps/Saw/On (38x38).png" type="Texture" id=1]
+[ext_resource path="res://Art/Pixel Adventure 1/Traps/Saw/On (38x38).png" type="Texture" id=1]
+
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
