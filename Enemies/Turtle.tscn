@@ -1,9 +1,10 @@
 [gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Enemies/Turtle.gd" type="Script" id=1]
-[ext_resource path="res://Art/Enemies/Turtle/Hit (44x26).png" type="Texture" id=2]
-[ext_resource path="res://Art/Enemies/Turtle/Spikes in (44x26).png" type="Texture" id=3]
-[ext_resource path="res://Art/Enemies/Turtle/Idle 1 (44x26).png" type="Texture" id=4]
+[ext_resource path="res://Art/Pixel Adventure 1/Enemies/Turtle/Hit (44x26).png" type="Texture" id=2]
+[ext_resource path="res://Art/Pixel Adventure 1/Enemies/Turtle/Spikes in (44x26).png" type="Texture" id=3]
+[ext_resource path="res://Art/Pixel Adventure 1/Enemies/Turtle/Idle 1 (44x26).png" type="Texture" id=4]
+
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )

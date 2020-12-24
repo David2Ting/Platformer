@@ -81,6 +81,7 @@ func check_jump_on_enemy(delta):
 	
 func die():
 	is_alive = false
+	$CollisionShape2D.disabled = true
 	$Sprite.play("hit")
 	reset_level()
 
